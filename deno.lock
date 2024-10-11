@@ -2856,6 +2856,7 @@
     "packageJson": {
       "dependencies": [
         "npm:@astrojs/check@~0.9.4",
+        "npm:@astrojs/cloudflare@^11.1.0",
         "npm:@astrojs/mdx@^4.0.0-beta.2",
         "npm:@astrojs/rss@^4.0.8",
         "npm:@astrojs/sitemap@^3.2.0",
