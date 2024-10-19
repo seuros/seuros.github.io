@@ -13,5 +13,5 @@ const baseConfig = {
 // https://astro.build/config
 export default defineConfig({
   ...baseConfig,
-  output: "dist",
+  output: "static",
 });
