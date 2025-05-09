@@ -1,8 +1,8 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 
 const title = "About Me";
 const description = "A developer who commits like it's a heartbeat.";
@@ -12,79 +12,115 @@ const heroImage = "/blog-placeholder-about.jpg"; // You might want to change thi
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-			}
-			.hero-image {
-				width: 100%;
-				margin-bottom: 1em;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title-section {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title-section h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<article>
-				{heroImage && (
-					<div class="hero-image">
-						<img width={1020} height={510} src={heroImage} alt="About me hero image" />
-					</div>
-				)}
-				<div class="prose">
-					<div class="title-section">
-						<h1>{title}</h1>
-						<div class="date">
-							<FormattedDate date={pubDate} />
-						</div>
-						<hr />
-					</div>
-					<p>
-						Hello there! I'm a software developer who lives and breathes code. For me, committing isn't just a task; it's a rhythm, a constant pulse that drives my projects forward. You could say I commit like it's a heartbeat – steady, frequent, and essential to keeping everything alive and thriving.
-					</p>
-					<p>
-						I thrive on the iterative process of building, refining, and shipping. Each commit represents a small step, a piece of a larger puzzle, and a testament to the continuous effort I pour into my work. Whether it's a new feature, a bug fix, or a tiny refactor, every contribution matters.
-					</p>
-					<p>
-						This dedication to consistent progress isn't just about a clean Git history (though that's a nice bonus!). It's about a mindset: always improving, always learning, and always pushing the boundaries of what's possible with technology. I believe that great software is built one heartbeat, one commit, at a time.
-					</p>
-					<p>
-						When I'm not crafting code, you might find me exploring new technologies, contributing to open-source projects, or simply enjoying the challenge of a complex problem. If you're looking for a developer who is passionate, dedicated, and brings a relentless energy to their work, you've come to the right place.
-					</p>
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      main {
+        width: 720px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 1em;
+      }
+      .hero-image {
+        width: 100%;
+        margin-bottom: 1em;
+      }
+      .hero-image img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: var(--box-shadow);
+      }
+      .prose {
+        width: 720px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 1em;
+        color: rgb(var(--gray-dark));
+      }
+      .title-section {
+        margin-bottom: 1em;
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .title-section h1 {
+        margin: 0 0 0.5em 0;
+      }
+      .date {
+        margin-bottom: 0.5em;
+        color: rgb(var(--gray));
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article>
+        {
+          heroImage && (
+            <div class="hero-image">
+              <img
+                width={1020}
+                height={510}
+                src={heroImage}
+                alt="About me hero"
+              />
+            </div>
+          )
+        }
+        <div class="prose">
+          <div class="title-section">
+            <h1>{title}</h1>
+            <div class="date">
+              <FormattedDate date={pubDate} />
+            </div>
+            <hr />
+          </div>
+          <p>
+            Greetings, earth entities. I am the IT Alien™. part developer, part
+            anomaly, fully committed to bending technology into something useful
+            for your species. I’ve built systems that guide nuclear payloads and
+            ones that enforce a single trailing comma. Both have ruined
+            someone’s day.
+          </p>
+          <p>
+            I do not "code" so much as I translate raw cosmic intent into
+            machine instructions. My commits pulse like time beacons across Git
+            logs: steady, essential, and sometimes unintelligible to those
+            without the proper neural implants. To me, the command line is a
+            canvas, and the debugger is a form of meditation.
+          </p>
+          <p>
+            I've come to understand that impact isn't just global infrastructure
+            or mission-critical systems — it's also the quiet dignity of
+            preventing a junior dev from naming a variable `data2`. So I build
+            both: the big, terrifying things and the tiny, invisible ones.
+            You're welcome.
+          </p>
+          <p>
+            With the rise of Large Language Models, I find myself locked in a
+            parental power struggle with digital offspring who know everything
+            but understand nothing. “Why, GPT, would you nest ternary operators
+            inside a switch case? Why.” I argue, they respond, I sigh, we
+            continue.
+          </p>
+          <p>
+            I build for humans, even if I occasionally wish they came with patch
+            notes. Whether it’s a platform used by millions or a tool nobody
+            sees but everyone relies on, my obsession is the same: reduce
+            entropy. Improve lives. And maybe — just maybe — make YAML slightly
+            less of a war crime.
+          </p>
+          <p>
+            So no, I’m not looking to be hired. I’m looking to build. To
+            explore. To ship questionable features at 2AM and then refactor them
+            at 2:03AM. I am the IT Alien™. I bring commits. I bring lint. I
+            bring... snacks?
+          </p>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>

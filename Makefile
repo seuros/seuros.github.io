@@ -1,11 +1,13 @@
 # Makefile for a Node.js project
 
-# Define the Node.js and NPM commands
-NODE := node
-NPM := npm
+# Define the Bun command
+BUN := bun
 
 # Define the build task
-.PHONY: build
+.PHONY: build lint
 
 build:
-	$(NPM) run build
+	$(BUN) run build
+
+lint:
+	$(BUN) run lint

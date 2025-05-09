@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# husky v9
+#   For more details, see https://typicode.github.io/husky
+
+npx lint-staged
