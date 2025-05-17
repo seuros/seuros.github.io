@@ -1,0 +1,21 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BaseHead from "../components/BaseHead.astro";
+
+const { title, description, maxWidth = "max-w-3xl" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main class={`${maxWidth} w-full mx-auto px-4 sm:px-6 lg:px-8 py-8`}>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

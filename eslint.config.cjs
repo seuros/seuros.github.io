@@ -7,12 +7,7 @@ const eslintConfigPrettier = require("eslint-config-prettier");
 module.exports = [
   // 1. Global ignores
   {
-    ignores: [
-      ".astro/**",
-      "dist/**",
-      "node_modules/**",
-      "eslint.config.cjs",
-    ],
+    ignores: [".astro/**", "dist/**", "node_modules/**", "eslint.config.cjs"],
   },
 
   // 2. Global language options and recommended base rules

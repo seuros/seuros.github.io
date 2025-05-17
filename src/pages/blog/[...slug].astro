@@ -1,87 +1,65 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
 }
 
 const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={post.data.title} description={post.data.description} />
-		<style>
-			main {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<article>
-				{post.data.image?.url && (
-					<div class="hero-image">
-						<img width={1020} height={510} src={post.data.image.url} alt={post.data.image.alt} />
-					</div>
-				)}
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={post.data.pubDate} />
-						</div>
-						<h1>{post.data.title}</h1>
-						<hr />
-					</div>
-					<Content />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  maxWidth="max-w-4xl"
+>
+  <article>
+    {
+      post.data.image?.url && (
+        <div class="hero-image" style="width:100%;">
+          <img
+            width={1020}
+            height={510}
+            src={post.data.image.url}
+            alt={post.data.image.alt}
+            style="display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow);"
+          />
+        </div>
+      )
+    }
+    <div class="prose prose-lg dark:prose-invert">
+      <div
+        class="title"
+        style="margin-bottom:1em;padding:1em 0;text-align:center;line-height:1;"
+      >
+        <div class="date" style="margin-bottom:0.5em;color:rgb(var(--gray));">
+          <FormattedDate date={post.data.pubDate} />
+        </div>
+        {
+          Array.isArray(post.data.tags) && post.data.tags.length > 0 && (
+            <div class="tags" style="margin-bottom:1em;text-align:center;">
+              {post.data.tags.map((tag) => (
+                <span
+                  class="tag"
+                  style="display:inline-block;background:#eee;color:#333;padding:0.2em 0.7em;border-radius:1em;margin-right:0.5em;font-size:0.95em;"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )
+        }
+        <h1 style="margin:0 0 0.5em 0;">{post.data.title}</h1>
+        <hr />
+      </div>
+      <Content />
+    </div>
+  </article>
+</Layout>

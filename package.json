@@ -1,7 +1,7 @@
 {
-  "name": "seuros-blog",
+  "name": "@seuros/blog",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "bunx astro dev",
     "start": "bunx astro dev",
@@ -24,12 +24,14 @@
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.3.1",
     "@astrojs/tailwind": "^5.1.5",
+    "@tailwindcss/typography": "^0.5.16",
     "astro": "^5.7.12",
+    "flowbite": "^3.1.2",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
-    "eslint": "^9.26.0",
+    "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-astro": "^1.3.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",

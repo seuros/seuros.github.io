@@ -1,7 +1,5 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 
 const title = "About Me";
@@ -10,88 +8,67 @@ const pubDate = new Date("2025-05-09");
 const heroImage = "/img/about-me.png";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-    <style>
-      main {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-      }
-      .hero-image {
-        width: 100%;
-        margin-bottom: 1em;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 12px;
-        box-shadow: var(--box-shadow);
-      }
-      .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
-      }
-      .title-section {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title-section h1 {
-        margin: 0 0 0.5em 0;
-      }
-      .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <article>
-        {
-          heroImage && (
-            <div class="hero-image">
-              <img
-                width={1020}
-                height={510}
-                src={heroImage}
-                alt="About me hero"
-              />
-            </div>
-          )
-        }
-        <div class="prose">
-          <div class="title-section">
-            <h1>{title}</h1>
-            <div class="date">
-              <FormattedDate date={pubDate} />
-            </div>
-            <hr />
-          </div>
-          <p>
-            With the rise of Large Language Models, I find myself locked in a
-            parental power struggle with digital offspring who know everything
-            but understand nothing. “Why, GPT, would you nest ternary operators
-            inside a switch case? Why.” I argue, they respond, I sigh, we
-            continue.
-          </p>
-          <p>
-            I'm looking to build. To explore. To ship questionable features at
-            2AM and then refactor them at 2:03AM. I am the IT Alien™. I bring
-            commits. I bring lint. You bring... snacks?
-          </p>
+<Layout title={title} description={description}>
+  <style>
+    .hero-image {
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    .hero-image img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: var(--box-shadow);
+    }
+    .title-section {
+      margin-bottom: 1em;
+      padding: 1em 0;
+      text-align: center;
+      line-height: 1;
+    }
+    .title-section h1 {
+      margin: 0 0 0.5em 0;
+    }
+    .date {
+      margin-bottom: 0.5em;
+      color: rgb(var(--gray));
+    }
+  </style>
+  <article>
+    {
+      heroImage && (
+        <div class="hero-image">
+          <img width={1020} height={510} src={heroImage} alt="About me hero" />
         </div>
-      </article>
-    </main>
-    <Footer />
-  </body>
-</html>
+      )
+    }
+    <div class="prose prose-lg dark:prose-invert">
+      <div class="title-section">
+        <h1>{title}</h1>
+        <div class="date">
+          <FormattedDate date={pubDate} />
+        </div>
+        <hr />
+      </div>
+      <p>
+        With the rise of Large Language Models, I find myself locked in a
+        parental power struggle with digital offspring who know everything but
+        understand nothing. “Why, GPT, would you nest ternary operators inside a
+        switch case? Why.” I argue, they respond, I sigh, we continue.
+      </p>
+      <p>
+        I'm looking to build. To explore. To ship questionable features at 2AM
+        and then refactor them at 2:03AM. I am the IT Alien™. I bring commits.
+        I bring lint. You bring... snacks?
+      </p>
+      <!-- Flowbite Modal Trigger Button -->
+      <button
+        id="about-modal-btn"
+        type="button"
+        class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Show Fun Fact
+      </button>
+    </div>
+  </article>
+</Layout>
